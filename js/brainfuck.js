@@ -160,6 +160,7 @@ function BrainFuck(str, cells) {
       return pc;
     };
     opcodes['.'] = function (pc) {
+      console.log('.', pc, '=[', arr[index], ',', String.fromCharCode(arr[index]), ']');
       stdout.push(String.fromCharCode(arr[index]));
       return pc;
     };
