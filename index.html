@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>BrainFuck</title>
-		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		<style type="text/css">
-			.small-oblique {
-				font-style: oblique;
-				font-size: small;
-			}
-			
-			textarea {
-				font-family: monospace;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container-fluid">
-			<h1>BrainFuck</h1>
-			<div class="row-fluid">
-				<fieldset class="span7">
-					<legend>BrainFuck Editor</legend>
-					<textarea id="editor" class="span12" style="min-height: 650px;">Hello World:
+  <head>
+    <title>BrainFuck</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <style type="text/css">
+      .small-oblique {
+        font-style: oblique;
+        font-size: small;
+      }
+      
+      textarea {
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <h1>BrainFuck</h1>
+      <div class="row-fluid">
+        <fieldset class="span7">
+          <legend>BrainFuck Editor</legend>
+          <textarea id="editor" class="span12" style="min-height: 650px;">Hello World:
 +++++ +++               Set Cell #0 to 8
 [
     >++++               Add 4 to Cell #1; this will always set Cell #1 to 4
@@ -54,45 +54,46 @@ Pointer :   ^
 +++.----- -.----- ---.  Cell #3 for 'rl' and 'd'
 >>+.                    Add 1 to Cell #5 gives us an exclamation point
 >++.                    And finally a newline from Cell #6</textarea>
-				</fieldset>
-				<fieldset class="span5">
-					<legend>&nbsp;</legend>
-					<div>
-						<div class="btn-toolbar" style="">
-								<div class="btn-group">
-									<button class="btn preset" data-preset="helloWorld">Hello World</button>
-									<button class="btn preset" data-preset="echo">Echo</button>
-								</div>
-							<div class="btn-group">
-								<button id="validate" class="btn btn-primary">Validate</button>
-								<button id="execute" class="btn btn-danger">Execute</button>
-							</div>
-						</div>
-					</div>
-					<div class="alert alert-error validation-error hidden">
-						<strong class="alert-heading">Validation Error</strong>
-						<p class="alert-content">Validation Error. Check your brackets.</p>
-					</div>
-					<div class="alert alert-success validation-success hidden">
-						<strong class="alert-heading">Validation Success</strong>
-						<p class="alert-content">Good job. Those brackets are matching nicely.</p>
-					</div>
-					<fieldset>
-						<legend>Input:</legend>
-						<textarea id="stdin" class="span12" style="min-height: 50px;"></textarea>
-					</fieldset>
-					<fieldset>
-						<legend>Output</legend>
-						<pre id="output" style="min-height: 300px;"></pre>
-					</fieldset>
-				</fieldset>
-			</div>
-			<div class="small-oblique" style="text-align: center;">
-				By <a href="http://master5o1.com/">master5o1</a> &middot; 
-				Hosted with <a href="http://pages.github.com/">GitHub:Pages</a> (<a href="https://github.com/master5o1/brainfuck.master5o1.com">repo</a>)
-			</div>
-		</div>
-		<div class="hidden" id="preset-helloWorld">Hello World:
+        </fieldset>
+        <fieldset class="span5">
+          <legend>&nbsp;</legend>
+          <div>
+            <div class="btn-toolbar" style="">
+                <div class="btn-group">
+                  <button class="btn preset" data-preset="helloWorld">Hello World</button>
+                  <button class="btn preset" data-preset="reverse">Reverse</button>
+                  <button class="btn preset" data-preset="echo">Echo</button>
+                </div>
+              <div class="btn-group">
+                <button id="validate" class="btn btn-primary">Validate</button>
+                <button id="execute" class="btn btn-danger">Execute</button>
+              </div>
+            </div>
+          </div>
+          <div class="alert alert-error validation-error hidden">
+            <strong class="alert-heading">Validation Error</strong>
+            <p class="alert-content">Validation Error. Check your brackets.</p>
+          </div>
+          <div class="alert alert-success validation-success hidden">
+            <strong class="alert-heading">Validation Success</strong>
+            <p class="alert-content">Good job. Those brackets are matching nicely.</p>
+          </div>
+          <fieldset>
+            <legend>Input:</legend>
+            <textarea id="stdin" class="span12" style="min-height: 50px;"></textarea>
+          </fieldset>
+          <fieldset>
+            <legend>Output</legend>
+            <pre id="output" style="min-height: 300px;"></pre>
+          </fieldset>
+        </fieldset>
+      </div>
+      <div class="small-oblique" style="text-align: center;">
+        By <a href="http://master5o1.com/">master5o1</a> &middot; 
+        Hosted with <a href="http://pages.github.com/">GitHub:Pages</a> (<a href="https://github.com/master5o1/brainfuck.master5o1.com">repo</a>)
+      </div>
+    </div>
+    <div class="hidden" id="preset-helloWorld">Hello World:
 +++++ +++               Set Cell #0 to 8
 [
     >++++               Add 4 to Cell #1; this will always set Cell #1 to 4
@@ -126,14 +127,17 @@ Pointer :   ^
 +++.----- -.----- ---.  Cell #3 for 'rl' and 'd'
 >>+.                    Add 1 to Cell #5 gives us an exclamation point
 >++.                    And finally a newline from Cell #6</div>
-		<div class="hidden" id="preset-echo" data-input="Echo, echo, echo...">Echo the input
-,	Read one character from input
-[	While character exists
-.		Display the character from the memory cell
-,		Read the next character from input
-]	Loop</div>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/brainfuck.js"></script>
-	</body>
+    <div class="hidden" id="preset-echo" data-input="Echo, echo, echo...">Echo the input
+,  Read one character from input
+[  While character exists
+.    Display the character from the memory cell
+,    Read the next character from input
+]  Loop</div>
+      <div class="hidden" id="preset-reverse" data-input="0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ">Reverse
+,[>,]&lt;     Read each character into cells from left to right
+[.[-]&lt;]    Display characters in cells from right to left</div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/brainfuck.js"></script>
+  </body>
 </html>
