@@ -60,9 +60,24 @@ Pointer :   ^
           <div>
             <div class="btn-toolbar" style="">
                 <div class="btn-group">
-                  <button class="btn preset" data-preset="helloWorld">Hello World</button>
-                  <button class="btn preset" data-preset="reverse">Reverse</button>
-                  <button class="btn preset" data-preset="echo">Echo</button>
+                  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    Program
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="#" class="preset" data-preset="helloWorld">Hello World</a>
+                    </li>
+                    <li>
+                      <a href="#" class="preset" data-preset="reverse">Reverse</a>
+                    </li>
+                    <li>
+                      <a href="#" class="preset" data-preset="echo">Echo</a>
+                    </li>
+                    <li>
+                      <a href="#" class="preset" data-preset="bf2c">BF To C</a>
+                    </li>
+                  </ul>
                 </div>
               <div class="btn-group">
                 <button id="validate" class="btn btn-primary">Validate</button>
@@ -78,13 +93,19 @@ Pointer :   ^
             <strong class="alert-heading">Validation Success</strong>
             <p class="alert-content">Good job. Those brackets are matching nicely.</p>
           </div>
+          <div class="alert alert-info hidden" id="credit">
+            <strong class="alert-heading">Brainfuck Credit</strong>
+            <p class="alert-content">
+              This BrainFuck script was found here: <a href="#" id="credit-link"></a>
+            </p>
+          </div>
           <fieldset>
             <legend>Input:</legend>
             <textarea id="stdin" class="span12" style="min-height: 50px;"></textarea>
           </fieldset>
           <fieldset>
             <legend>Output</legend>
-            <pre id="output" style="min-height: 300px;"></pre>
+            <pre id="output" style="min-height: 200px;"></pre>
           </fieldset>
         </fieldset>
       </div>
@@ -136,6 +157,39 @@ Pointer :   ^
       <div class="hidden" id="preset-reverse" data-input="0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ">Reverse
 ,[>,]&lt;     Read each character into cells from left to right
 [.[-]&lt;]    Display characters in cells from right to left</div>
+    <div class="hidden" id="preset-bf2c" data-input=",[>,]&lt; [.[-]&lt;]" data-credit="http://www.hevanet.com/cristofd/brainfuck/">BrainFuck to C
++++[>+++++&lt;-]>>+&lt;[>>++++>++>+++++>+++++>+>>+&lt;++[++&lt;]>---]
+
+>++++.>>>.+++++.>------.&lt;--.+++++++++.>+.+.&lt;&lt;&lt;&lt;---.[>]&lt;&lt;.&lt;&lt;&lt;.-------.>++++.
+&lt;+++++.+.>-----.>+.&lt;++++.>>++.>-----.
+
+&lt;&lt;&lt;-----.+++++.-------.&lt;--.&lt;&lt;&lt;.>>>.&lt;&lt;+.>------.-..--.+++.-----&lt;++.&lt;--[>+&lt;-]
+>>>>>--.--.&lt;++++.>>-.&lt;&lt;&lt;.>>>--.>.
+
+&lt;&lt;&lt;&lt;-----.>----.++++++++.----&lt;+.+++++++++>>--.+.++&lt;&lt;&lt;&lt;.[>]&lt;.>>
+
+,[>>+++[&lt;+++++++>-]&lt;[&lt;[-[-&lt;]]>>[>]&lt;-]&lt;[&lt;+++++>-[&lt;+++>-[&lt;-->-[&lt;+++>-
+[&lt;++++[>[->>]&lt;[>>]&lt;&lt;-]>[&lt;+++>-[&lt;--->-[&lt;++++>-[&lt;+++[>[-[-[-[->>]]]]&lt;[>>]&lt;&lt;-]
+>[&lt;+>-[&lt;->-[&lt;++>-[&lt;[-]>-]]]]]]]]]]]]]
+
+&lt;[
+    -[-[>+&lt;-]>]
+    &lt;[&lt;&lt;&lt;&lt;.>+++.+.+++.-------.>---.++.&lt;.>-.++&lt;&lt;&lt;&lt;.[>]>>>>>>>>>]
+    &lt;[[&lt;]>++.--[>]>>>>>>>>]
+    &lt;[&lt;&lt;++..-->>>>>>]
+    &lt;[&lt;&lt;..>>>>>]
+    &lt;[&lt;&lt;..-.+>>>>]
+    &lt;[&lt;&lt;++..---.+>>>]
+    &lt;[&lt;&lt;&lt;.>>.>>>>>]
+    &lt;[&lt;&lt;&lt;&lt;-----.+++++>.----.+++.+>---.&lt;&lt;&lt;-.[>]>]
+    &lt;[&lt;&lt;&lt;&lt;.-----.>++++.&lt;++.+++>----.>---.&lt;&lt;&lt;.-[>]]
+    &lt;[&lt;&lt;&lt;&lt;&lt;----.>>.&lt;&lt;.+++++.>>>+.++>.>>]
+    &lt;.>
+]>
+,]
+
+&lt;&lt;&lt;&lt;&lt;.&lt;+.>++++.&lt;----.>>---.&lt;&lt;&lt;-.>>>+.>.>.[&lt;]>++.[>]&lt;.
+    </div>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/brainfuck.js"></script>

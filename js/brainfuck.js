@@ -8,6 +8,17 @@
     var preset = $this.data('preset');
     var $preset = $('#preset-' + preset);
     var input = $preset.data('input');
+    var credit = $preset.data('credit');
+
+    $('.validation-error').addClass('hidden');
+    $('.validation-success').addClass('hidden');
+
+    $('#credit').addClass('hidden');
+    if (!!credit) {
+      $('#credit-link').attr('href', credit);
+      $('#credit-link').text(credit);
+      $('#credit').removeClass('hidden');
+    }
 
     $input.val(input);
     $editor.val($preset.text());
@@ -29,6 +40,9 @@
     var script = $('#editor').val();
     var input = $('#stdin').val();
     var output = '';
+
+    $('.validation-error').addClass('hidden');
+    $('.validation-success').addClass('hidden');
 
     var bf = new BrainFuck(script);
 
@@ -166,7 +180,6 @@ function BrainFuck(str, cells) {
       return pc;
     };
     opcodes['.'] = function (pc) {
-      console.log('.', pc, '=[', arr[index], ',', String.fromCharCode(arr[index]), ']');
       stdout.push(String.fromCharCode(arr[index]));
       return pc;
     };
