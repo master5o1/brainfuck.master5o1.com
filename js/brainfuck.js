@@ -124,10 +124,16 @@ function BrainFuck(str, cells) {
     var opcodes = {};
     opcodes['<'] = function (pc) {
       index -= 1;
+      if (index < 0) {
+        index = arr.length - 1;
+      }
       return pc;
     };
     opcodes['>'] = function (pc) {
       index += 1;
+      if (index >= arr.length) {
+        index = 0;
+      }
       return pc;
     };
     opcodes['+'] = function (pc) {
